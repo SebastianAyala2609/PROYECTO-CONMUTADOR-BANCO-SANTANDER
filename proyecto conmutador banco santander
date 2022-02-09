@@ -1,0 +1,81 @@
+nombre = input("INTRODUZCA SU NOMBRE Y APELLIDO: ") 
+
+while True: 
+  clave = input("INTRODUCE TU CLAVE SANTANDER DE 4 DIGITOS: ")
+  clave_en_letras = str(clave)
+  if len(clave_en_letras) != 4 :
+    print("LA CLAVE SOLO PUEDE TENER 4 DIGITOS.")
+    continue
+  elif len(clave_en_letras) == 4:
+    print("Bienvenido")
+  break 
+
+clave_nueva = clave
+
+def conmutador(): 
+
+    print(f"HOLA: {nombre} \nGRACIAS POR COMUNICARTE CON EL CENTRO DE ATENCIÓN AL CLIENTE DE SANTANDER \n")
+    print("MENÚ PRINCIPAL \n1)CONOCER SALDOS Y LÍMITES \n2)OPERACIONES \n3)CONSULTAS \n ")
+
+    eleccion1 = int(input("INTRODUCE EL NÚMERO DE OPERACIÓN QUE DESEAS REALIZAR: "))
+
+    if eleccion1 == 1: 
+        print("\nSALDOS Y LÍMITES \n1)CONOCER TU SALDO ACTUAL \n2)CONOCER LOS LIMITES DE TU TARJETA (DEBITO) \n")
+        eleccionS = int(input("INTRODUCE EL NÚMERO DE OPERACIÓN QUE DESEAS REALIZAR: "))
+        if eleccionS == 1: 
+            print("TU SALDO ACTUAL ES: $10.000")
+        elif eleccionS == 2:
+            print("EL LÍMITE DE TU TARJETA DE DÉBITO ES:  $12.500") 
+        else: 
+         print("NO SE RECONOCE LA OPCIÓN INGRESADA")
+
+
+    elif eleccion1 == 2: 
+        print("\nOPERACIONES \n1)REALIZAR UNA TRANSFERENCIA \n2)CLAVE BANELCO NUEVA \n")
+        eleccionO = int(input("INTRODUCE EL NÚMERO DE OPERACIÓN QUE DESEAS REALIZAR: "))
+        if eleccionO == 1:
+            print("INDIQUE CÓMO DESEA REALIZAR LA TRANSFERENCIA: \n1)CBU \n2)ALIAS \n ")
+            cbu_o_alias = int(input("INGRESE EL N° DE OPERACIÓN: "))
+            if cbu_o_alias == 1: 
+                print("A CONTINUACIÓN INTRODUCE EL NUMERO DE CBU AL QUE DESEA TRANSFERIR (SOLO NUMEROS): ")
+                cbu = int(input("CBU N°: ")) 
+                transferencia = float(input("INTRODUCE EL MONTO QUE QUIERES TRANSFERIR: "))
+                if transferencia <= 75000:
+                    clave_santander = int(input("INTRODUCE TU CLAVE SANTANDER DE 4 DIGITOS: "))
+                    if str(clave_santander) == clave_en_letras:
+                        print(f"LA TRANSFERENCIA POR ${transferencia} FUE REALIZADA CORRECTAMENTE AL CBU: {cbu}")
+                        print("GRACIAS POR UTILIZAR LOS SERVICIOS DE SANTANDER DIGITAL.")
+                    else: 
+                        print(f"LO SIENTO, LA CLAVE SANTANDER INGRESADA NO ES CORRECTA.")
+                elif transferencia > 75000:
+                    print("LO SIENTO, NO PODEMOS AUTORIZAR UNA TRANSFERENCIA MAYOR A $75.000 POR ESTE MEDIO.")
+                    print("POR FAVOR, DIRIGETE A LA SUCURSAL MAS CERCANA, O LLAMA AL 0800-333-9002 PARA AUTORIZAR LA TRANSFERENCIA.")
+                else: 
+                    print("Fin del programa.")
+            elif cbu_o_alias == 2: 
+                print("A CONTINUACIÓN INTRODUCE EL ALIAS AL QUE DESEA TRANSFERIR: ")
+                alias = str(input("ALIAS: ")) 
+                transferencia = float(input("INTRODUCE EL MONTO QUE QUIERES TRANSFERIR: "))
+                if transferencia <= 75000:
+                    clave_santander = int(input("INTRODUCE TU CLAVE SANTANDER DE 4 DIGITOS: "))
+                    if str(clave_santander) == clave_en_letras:
+                        print(f"LA TRANSFERENCIA POR ${transferencia} FUE REALIZADA CORRECTAMENTE AL ALIAS: {alias}") 
+                        print("GRACIAS POR UTILIZAR LOS SERVICIOS DE SANTANDER DIGITAL.")
+                    else: 
+                        print(f"LO SIENTO, LA CLAVE SANTANDER INGRESADA NO ES CORRECTA.")    
+                elif transferencia > 75000:
+                    print("LO SIENTO, NO PODEMOS AUTORIZAR UNA TRANSFERENCIA MAYOR A $75.000 POR ESTE MEDIO.")
+                    print("POR FAVOR, DIRIGETE A LA SUCURSAL MAS CERCANA, O LLAMA AL 0800-333-9002 PARA AUTORIZAR LA TRANSFERENCIA.")
+                else: 
+                    print("Fin del programa.")
+        elif eleccionO ==2: 
+            print("Tu nueva clave banelco es: sebas")
+        
+    elif eleccion1 == 3: 
+        print("INDIQUE CÓMO DESEA CONTINUAR: \n1)CAMBIAR CLAVE \n2)CAMBIAR ALIAS \n ")
+
+
+conmutador()
+
+
+
